@@ -13,18 +13,18 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 import {
   HeaderContainer,
   LogoContainer,
-  OptionContainer,
+  OptionsContainer,
   OptionLink
-} from './header.styles';
+} from './header.styles.jsx';
 
 const Header = ({ currentUser, hidden }) => (
   <HeaderContainer>
     <LogoContainer to='/'>
       <Logo className='logo' />
     </LogoContainer>
-    <OptionContainer className='options'>
+    <OptionsContainer>
       <OptionLink to='/shop'>SHOP</OptionLink>
-      <LogoContainer to='/shop'>CONTACT</LogoContainer>
+      <OptionLink to='/shop'>CONTACT</OptionLink>
       {currentUser ? (
         <OptionLink as='div' onClick={() => auth.signOut()}>
           SIGN OUT
@@ -33,7 +33,7 @@ const Header = ({ currentUser, hidden }) => (
         <OptionLink to='/signin'>SIGN IN</OptionLink>
       )}
       <CartIcon />
-    </OptionContainer>
+    </OptionsContainer>
     {hidden ? null : <CartDropdown />}
   </HeaderContainer>
 );
